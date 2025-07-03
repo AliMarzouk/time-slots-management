@@ -1,0 +1,25 @@
+<div class="flex flex-wrap justify-center">
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [placeholder]="dateLabel"
+      [min]="minDate"
+      [max]="maxDate"
+      [(ngModel)]="dateValue"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="lg:pl-4">
+    <input
+      matInput
+      [matTimepicker]="timepicker"
+      [placeholder]="timeLabel"
+      [(ngModel)]="timeValue"
+    />
+    <mat-timepicker-toggle matSuffix [for]="timepicker"></mat-timepicker-toggle>
+    <mat-timepicker #timepicker></mat-timepicker>
+  </mat-form-field>
+</div>

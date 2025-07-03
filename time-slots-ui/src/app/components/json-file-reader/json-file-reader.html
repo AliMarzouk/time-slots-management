@@ -1,0 +1,18 @@
+<input
+  type="file"
+  class="hidden"
+  #fileUpload
+  (change)="onFileSelected($event)"
+/>
+
+<div class="flex flex-row justify-between">
+  <div>
+    {{ fileName || label }}
+  </div>
+
+  <div>
+    <button matMiniFab (click)="fileUpload.click()" class="ml-4">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
+</div>
