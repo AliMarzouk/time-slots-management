@@ -6,15 +6,16 @@ const WORKDAY_END_HOUR = 18;
 
 @Injectable()
 export class TimeService {
+  /** */
   findAvailabilities(
-    searchPeriodEnd: Date,
     searchPeriodStart: Date,
+    searchPeriodEnd: Date,
     slotDurationMinutes: number,
     busySlots: TimeSlot[],
   ): Record<string, TimeSlot[]> {
     const workDaysSlots: TimeSlot[] = this.splitIntoWorkdaySlots(
-      searchPeriodEnd,
       searchPeriodStart,
+      searchPeriodEnd,
     );
     const freeSlots: Record<string, TimeSlot[]> =
       this.calculateAvailabilitiesFromBusySlots(workDaysSlots, busySlots);
@@ -66,7 +67,7 @@ export class TimeService {
     return slots;
   }
 
-  divideTimeSlotsByDuration(
+  private divideTimeSlotsByDuration(
     slots: TimeSlot[],
     DurationInMinutes: number,
   ): TimeSlot[] {
@@ -76,7 +77,7 @@ export class TimeService {
     );
   }
 
-  divideTimeSlotByDuration(
+  private divideTimeSlotByDuration(
     slot: TimeSlot,
     DurationInMinutes: number,
   ): TimeSlot[] {
@@ -103,7 +104,7 @@ export class TimeService {
     return slots;
   }
 
-  calculateAvailabilitiesFromBusySlots(
+  private calculateAvailabilitiesFromBusySlots(
     freeSlots: TimeSlot[],
     busySlots: TimeSlot[],
   ): Record<string, TimeSlot[]> {
