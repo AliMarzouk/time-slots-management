@@ -1,0 +1,30 @@
+<!-- <table mat-table [dataSource]="slotTableData" class="mat-elevation-z8">
+    <ng-container matColumnDef="day">
+      <th mat-header-cell *matHeaderCellDef>Day</th>
+      <td mat-cell *matCellDef="let element">{{ element.day }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="slot">
+      <th mat-header-cell *matHeaderCellDef>Slot</th>
+      <td mat-cell *matCellDef="let element">{{ element.slot }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table> -->
+
+<mat-accordion>
+  @for (day of tableDays; track day) {
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ day }} </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-chip-set aria-label="Fish selection">
+      @for (slot of tableDataByDay[day]; track slot) {
+      <mat-chip>{{slot}}</mat-chip>
+      }
+    </mat-chip-set>
+  </mat-expansion-panel>
+  }
+</mat-accordion>

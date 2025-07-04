@@ -1,4 +1,4 @@
-type TimeSlot = {
+export type TimeSlot = {
   start: Date;
   end: Date;
 };

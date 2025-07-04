@@ -1,0 +1,23 @@
+<div class="text-xl xl:px-96 py-10">
+  <mat-card appearance="outlined" class="main-form-card px-10 py-6">
+    <mat-card-content>
+      <app-availability-form (searchClicked)="onSearchClicked($event)" />
+    </mat-card-content>
+  </mat-card>
+
+  @if (searched && !loading) {
+  <mat-card appearance="outlined" class="main-form-card px-24 py-6 mt-10">
+    <mat-card-content>
+      @if (emptyAvailabilities) { No availabilities found sorry } @else {
+      <app-availability-table [availabilities]="availabilities" />
+      }
+    </mat-card-content>
+  </mat-card>
+  } @else if (loading) {
+  <mat-card appearance="outlined" class="main-form-card px-24 py-6 mt-10">
+    <mat-card-content>
+      <mat-spinner></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>

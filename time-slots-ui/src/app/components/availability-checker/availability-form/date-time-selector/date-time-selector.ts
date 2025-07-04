@@ -22,7 +22,6 @@ import { MatTimepickerModule } from '@angular/material/timepicker';
     FormsModule,
   ],
   templateUrl: './date-time-selector.html',
-  styleUrl: './date-time-selector.css',
 })
 export class DateTimeSelector {
   @Input() dateLabel = 'Choose a date';

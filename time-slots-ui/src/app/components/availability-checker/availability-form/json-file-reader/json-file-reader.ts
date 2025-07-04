@@ -6,11 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-json-file-reader',
   imports: [MatIconModule, MatButtonModule],
   templateUrl: './json-file-reader.html',
-  styleUrl: './json-file-reader.css',
 })
 export class JsonFileReader {
   @Input() label = 'Choose your json file';
   @Input() id = 0;
+  @Input() jsonValidationFunction: ((data: any) => void) | undefined;
 
   @Output() jsonLoaded = new EventEmitter<any>();
 
@@ -32,9 +32,7 @@ export class JsonFileReader {
   onReaderLoad = (event: any) => {
     try {
       const json = JSON.parse(event.target.result);
-      if (!Array.isArray(json)) {
-        throw 'Not a valid array';
-      }
+      this.jsonValidationFunction && this.jsonValidationFunction(json);
       this.jsonLoaded.emit({
         id: this.id,
         data: json,
