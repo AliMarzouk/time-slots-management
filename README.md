@@ -1,5 +1,26 @@
 # Time slots management application
 
+## Introduction 
+
+This is a full-stack web application built with **Angular** (frontend) and **NestJS** (backend) that calculates **common available time slots** given:
+- A required meeting duration
+- A list of busy time slots from multiple participants
+- A start and end date of the considered period
+
+## Getting started
+
+The application is dockerized, so if you have docker deamon installed you can easily start development servers with 
+
+```
+$ docker compose up
+```
+
+Frontend: http://localhost:4200
+
+Backend API: http://localhost:3000
+
+If docker is not available you can install Node 22 and follow the starting commands of each of the frontend and backend.
+
 ## 4 Hours checkpoint functionalities
 
 ### Backend
