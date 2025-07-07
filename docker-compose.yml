@@ -1,0 +1,21 @@
+services:
+  backend-nestjs-app:
+    container_name: backend-nestjs-app
+    ports:
+      - "3000:3000"
+    build:
+      context: ./time-slots-api
+    volumes:
+      - ./time-slots-api/src:/usr/src/app/src
+    environment:
+      - TZ=Europe/Paris
+      
+  frontend-angular-app:
+    container_name: frontend-angular-app
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend-nestjs-app
+    build:
+      context: ./time-slots-ui
+      target: dev
